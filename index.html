@@ -8,14 +8,12 @@
 </head>
 <body>
 <script>
-	pole = Init();
+	var pole = Init();
 	Show(pole);
-	var flag = true;
-	while (flag) {
-		Sdvig(pole);
-		var str = prompt("Добавить строку?(y - да)");
-		if (str != "y") flag = false;
-		Show(pole);
+	
+	var TimeId1 = setInterval(Sdvig(pole), 1000);
+	var TimeId2 = setInterval(Show(pole), 1000);
+
 	}
 	alert("Проверка последней строки");
 	Destroy(pole);
