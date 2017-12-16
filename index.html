@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Тетрис v0.1.1</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="game.js"></script>
+</head>
+<body>
+<script>
+	pole = Init();
+	Show(pole);
+	var flag = true;
+	while (flag) {
+		Sdvig(pole);
+		var str = prompt("Добавить строку?(y - да)");
+		if (str != "y") flag = false;
+		Show(pole);
+	}
+	alert("Проверка последней строки");
+	Destroy(pole);
+	Show(pole);
+</script>
+</body>
+</html>
