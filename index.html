@@ -9,15 +9,20 @@
 <body>
 <script>
 	var pole = Init();
-	Show(pole);
+	Show();
 	
-	var TimeId1 = setInterval(Sdvig(pole), 1000);
-	var TimeId2 = setInterval(Show(pole), 1000);
+	var TimeId1 = setInterval(Test, 1000);
+	var TimeId2 = setInterval(Sdvig, 1000);
+	var TimeId3 = setInterval(Show, 1000);
+	var TimeId3 = setInterval(Add, 20000);
 
+	function Test() {
+		console.log("test!!");
 	}
+
 	alert("Проверка последней строки");
 	Destroy(pole);
-	Show(pole);
+	Show();
 </script>
 </body>
 </html>
