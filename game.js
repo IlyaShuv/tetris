@@ -1,22 +1,24 @@
 function Init() {
 	var pole = new Array();
 	for (var i=0; i<20; i++) {
-		pole[i] = new Array(0,0,0,0,0,0,0,0,0,0);
+		pole[i] = new Array(i,0,0,0,0,0,0,0,0,0);
 	}
 	return pole;
 }
 
-function Show(pole) {
+function Show() {
 	document.body.innerHTML = '';
 	for (var i=0; i<20; i++) {
-		document.write("<br>")
+		var content = document.body.innerHTML;
+		document.body.innerHTML = content + "<br>";
 		for (var j=0; j<10; j++) {
-			document.write(pole[i][j]);
+		content = document.body.innerHTML;
+		document.body.innerHTML = content + pole[i][j];
 		}
 	}
 }
 
-function Destroy(pole) {
+function Destroy() {
 	for (var i=0; i<10; i++) {
 		if (pole[19][i] == 0) break
 		else if ((pole[19][i] == 1) && (i == 9)) {
@@ -26,10 +28,15 @@ function Destroy(pole) {
 	}
 }
 
-function Sdvig(pole) {
+function Add() {
 	pole.pop();
 	pole.unshift([0,0,0,0,0,0,0,0,0,0]);
 	for (var i=0; i<10; i++) {
 		pole[0][i] = Math.round(Math.random());
 	}
+}
+
+function Sdvig() {
+	pole.pop();
+	pole.unshift([0,0,0,0,0,0,0,0,0,0]);
 }
