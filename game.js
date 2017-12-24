@@ -31,16 +31,49 @@ function Destroy() {
 }
 
 function Add() {
-	pole.pop();
-	pole.unshift([0,0,0,0,0,0,0,0,0,0]);
-	var one = Math.floor(Math.random()*10);
+	//pole.unshift([0,0,0,0,0,0,0,0,0,0]);
+	var rand = Math.floor(Math.random()*10);
 	for (var i=0; i<10; i++) {
 		pole[0][i] = 0;
 	}
-		pole[0][one] = 1;
+
+		pole[0][rand] = 1;
+
+		for (var i=0; i<20; i++) {
+			if (pole[i][rand] == 0) {
+				break;
+			}
+			else if ((i == 19) && (pole[i][rand] == 1)) {
+				Show(pole);
+				alert("Game over!");
+				clearInterval(TimeId1);
+				clearInterval(TimeId2);
+				clearInterval(TimeId3);
+				clearInterval(TimeId4);
+			}
+		}	
 }
 
 function Sdvig() {
-	pole.pop();
-	pole.unshift([0,0,0,0,0,0,0,0,0,0]);
+	for (var i=18; i>=0; i--) {
+		for (var j=0; j<10; j++) {
+			if (pole[i][j] == 1) {
+				if (pole[i+1][j] == 0) {
+					pole[i+1][j] = 1;
+					if (i != 0) {
+					pole[i][j] = 0; }
+				}
+			}
+		}
+	}
+	//pole.pop();
+	//pole.unshift([0,0,0,0,0,0,0,0,0,0]);
+	/*	for (var i=0; i<10; i++) { //Проверка заполнености поля
+		if (pole[0][i] == 1) {
+			alert("Game over!");
+			clearInterval(TimeId1);
+			clearInterval(TimeId2);
+			clearInterval(TimeId3);
+			clearInterval(TimeId4);
+		}*/
 }
