@@ -1,7 +1,7 @@
 function Init() {
 	var pole = new Array();
 	for (var i=0; i<20; i++) {
-		pole[i] = new Array(i,0,0,0,0,0,0,0,0,0);
+		pole[i] = new Array(0,0,0,0,0,0,0,0,0,0);
 	}
 	return pole;
 }
@@ -16,6 +16,8 @@ function Show() {
 		document.body.innerHTML = content + pole[i][j];
 		}
 	}
+	content = document.body.innerHTML;
+	document.body.innerHTML = "<div class = main_pole>" + content + "</div>";
 }
 
 function Destroy() {
