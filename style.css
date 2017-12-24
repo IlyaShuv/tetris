@@ -1,0 +1,9 @@
+.main_pole {
+
+	width: 120px;
+	margin-top: 50px;
+	margin-left: 200px;
+
+	padding: 10px;
+	border: blue medium solid;
+}
