@@ -11,15 +11,15 @@
 	var pole = Init();
 	Show();
 	
-	var TimeId1 = setInterval(Test, 1000);
-	var TimeId3 = setInterval(Show, 1000);
-	var TimeId3 = setInterval(Add, 1000);
+	var TimeId1 = setInterval(Test, 30000);
+	var TimeId2 = setInterval(Show, 30);
+	var TimeId3 = setInterval(Sdvig, 30);
+	var TimeId4 = setInterval(Add, 30);
 
 	function Test() {
 		console.log("test!!");
 	}
 
-	alert("Проверка последней строки");
 	Destroy(pole);
 	Show();
 </script>
