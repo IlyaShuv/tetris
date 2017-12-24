@@ -33,9 +33,11 @@ function Destroy() {
 function Add() {
 	pole.pop();
 	pole.unshift([0,0,0,0,0,0,0,0,0,0]);
+	var one = Math.floor(Math.random()*10);
 	for (var i=0; i<10; i++) {
-		pole[0][i] = Math.round(Math.random());
+		pole[0][i] = 0;
 	}
+		pole[0][one] = 1;
 }
 
 function Sdvig() {
