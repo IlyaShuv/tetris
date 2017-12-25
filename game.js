@@ -21,17 +21,18 @@ function Show() {
 }
 
 function Destroy() {
-	for (var i=0; i<10; i++) {
-		if (pole[19][i] == 0) break
-		else if ((pole[19][i] == 1) && (i == 9)) {
-			pole.pop();
-			pole.unshift([0,0,0,0,0,0,0,0,0,0]);
+	for (var i=0; i<20; i++) { 
+		for (var j=0; j<10; j++) {
+			if (pole[i][j] == 0) break
+			else if ((pole[i][j] == 1) && (j == 9)) {
+				pole.pop();
+				pole.unshift([0,0,0,0,0,0,0,0,0,0]);
+			}
 		}
 	}
 }
 
 function Add() {
-	//pole.unshift([0,0,0,0,0,0,0,0,0,0]);
 	var rand = Math.floor(Math.random()*10);
 	for (var i=0; i<10; i++) {
 		pole[0][i] = 0;
@@ -50,6 +51,7 @@ function Add() {
 				clearInterval(TimeId2);
 				clearInterval(TimeId3);
 				clearInterval(TimeId4);
+				clearInterval(TimeId5);
 			}
 		}	
 }
@@ -66,14 +68,4 @@ function Sdvig() {
 			}
 		}
 	}
-	//pole.pop();
-	//pole.unshift([0,0,0,0,0,0,0,0,0,0]);
-	/*	for (var i=0; i<10; i++) { //Проверка заполнености поля
-		if (pole[0][i] == 1) {
-			alert("Game over!");
-			clearInterval(TimeId1);
-			clearInterval(TimeId2);
-			clearInterval(TimeId3);
-			clearInterval(TimeId4);
-		}*/
 }
