@@ -12,9 +12,10 @@
 	Show();
 	
 	var TimeId1 = setInterval(Test, 30000);
-	var TimeId2 = setInterval(Show, 30);
-	var TimeId3 = setInterval(Sdvig, 30);
-	var TimeId4 = setInterval(Add, 30);
+	var TimeId2 = setInterval(Sdvig, 100);
+	var TimeId3 = setInterval(Add, 100);
+	var TimeId4 = setInterval(Destroy, 100)
+	var TimeId5 = setInterval(Show, 100);
 
 	function Test() {
 		console.log("test!!");
