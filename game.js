@@ -63,9 +63,22 @@ function Sdvig() {
 				if (pole[i+1][j] == 0) {
 					pole[i+1][j] = 1;
 					if (i != 0) {
-					pole[i][j] = 0; }
+						pole[i][j] = 0; }
 				}
 			}
 		}
+	}
+}
+
+function arrKey(event) {
+	var key = event.keyCode;
+	//console.log("клава");
+	//console.log(key);
+	
+	if (key == 37) {
+		console.log("left");
+	}
+	if (key == 39) {
+		console.log("right");
 	}
 }
