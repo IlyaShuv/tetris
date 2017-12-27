@@ -51,7 +51,6 @@ function Add() {
 				clearInterval(TimeId2);
 				clearInterval(TimeId3);
 				clearInterval(TimeId4);
-				clearInterval(TimeId5);
 			}
 		}	
 }
@@ -62,8 +61,7 @@ function Sdvig() {
 			if (pole[i][j] == 1) {
 				if (pole[i+1][j] == 0) {
 					pole[i+1][j] = 1;
-					if (i != 0) {
-						pole[i][j] = 0; }
+					pole[i][j] = 0;
 				}
 			}
 		}
@@ -72,13 +70,29 @@ function Sdvig() {
 
 function arrKey(event) {
 	var key = event.keyCode;
-	//console.log("клава");
-	//console.log(key);
 	
 	if (key == 37) {
+		for (var i=0; i<19; i++) {
+			for (var j=1; j<10; j++) {
+				if ((pole[i][j] == 1) && (pole[i+1][j] != 1) && (pole[i][j-1] != 1)) {
+					pole[i][j-1] = 1;
+					pole[i][j] = 0;
+				}
+			}
+		}
 		console.log("left");
 	}
 	if (key == 39) {
+		for (var i=0; i<19; i++) {
+			for (var j=8; j>=0; j--) {
+				if ((pole[i][j] == 1) && (pole[i+1][j] != 1) && (pole[i][j+1] != 1)) {
+					pole[i][j+1] = 1;
+					pole[i][j] = 0;
+				}
+			}
+		}
 		console.log("right");
 	}
+
+	Show();
 }

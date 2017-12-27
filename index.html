@@ -11,17 +11,14 @@
 	var pole = Init();
 	Show();
 	
-	var TimeId1 = setInterval(Test, 30000);
-	var TimeId2 = setInterval(Sdvig, 100);
-	var TimeId3 = setInterval(Add, 100);
-	var TimeId4 = setInterval(Destroy, 100)
-	var TimeId5 = setInterval(Show, 100);
+	Add();
+	var TimeId1 = setInterval(Add, 4000);
+	var TimeId2 = setInterval(Show, 200);
+	var TimeId3 = setInterval(Sdvig, 200);
+	var TimeId4 = setInterval(Destroy, 4000)
+	
 
 	addEventListener("keypress", arrKey);
-
-	function Test() {
-		console.log("test!!");
-	}
 
 </script>
 </body>
