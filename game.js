@@ -27,6 +27,8 @@ function Destroy() {
 			else if ((pole[i][j] == 1) && (j == 9)) {
 				pole.pop();
 				pole.unshift([0,0,0,0,0,0,0,0,0,0]);
+				points++;
+				console.log("points: " + points);
 			}
 		}
 	}
