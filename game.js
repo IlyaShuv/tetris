@@ -49,19 +49,23 @@ function Add() {
 				alert("Game over!");
 				clearInterval(TimeId1);
 				clearInterval(TimeId2);
-				clearInterval(TimeId3);
-				clearInterval(TimeId4);
 			}
 		}	
 }
 
 function Sdvig() {
+	var bool_sdvig = false;
 	for (var i=18; i>=0; i--) {
 		for (var j=0; j<10; j++) {
-			if (pole[i][j] == 1) {
-				if (pole[i+1][j] == 0) {
-					pole[i+1][j] = 1;
-					pole[i][j] = 0;
+			if ((pole[i][j] == 1) && (pole[i+1][j] == 0)) {
+				pole[i+1][j] = 1;
+				pole[i][j] = 0;
+				bool_sdvig = true;
+			}
+			else {
+				if ((i == 0) && (j == 9) && !bool_sdvig) {
+					Add();
+					Destroy();
 				}
 			}
 		}
@@ -92,6 +96,11 @@ function arrKey(event) {
 			}
 		}
 		console.log("right");
+	}
+	if (key == 40) {
+		Sdvig();
+		Show();
+		console.log("down");
 	}
 
 	Show();
