@@ -12,16 +12,16 @@ function Show() {
 		var content = document.body.innerHTML;
 		document.body.innerHTML = content + "<br>";
 		for (var j=0; j<10; j++) {
-		content = document.body.innerHTML;
-		if (pole[i][j] == 0) {
-			document.body.innerHTML = content + "<div id = 'cell_0'></div>";
-		} else if (pole[i][j] == 1) {
-			document.body.innerHTML = content + "<div id = 'cell_1'></div>";
-		}
+			content = document.body.innerHTML;
+			if (pole[i][j] == 0) {
+				document.body.innerHTML = content + "<div id = 'cell_0'></div>";
+			} else if (pole[i][j] == 1) {
+				document.body.innerHTML = content + "<div id = 'cell_1'></div>";
+			}
 		}
 	}
 	content = document.body.innerHTML;
-	document.body.innerHTML = "<div class = main_pole>" + content + "</div>";
+	document.body.innerHTML = "<div class = main_pole>" + "<div class = play_pole>" + content + "</div>" + "</div>";
 }
 
 function Destroy() {
@@ -52,9 +52,11 @@ function Add() {
 			}
 			else if ((i == 19) && (pole[i][rand] == 1)) {
 				Show(pole);
+				document.body.innerHTML = "<div id='death'><audio src='muzichka.mp3' autoplay='autoplay'>?</audio></div>";
 				alert("Game over!");
 				clearInterval(TimeId1);
 				clearInterval(TimeId2);
+
 			}
 		}	
 }
@@ -105,7 +107,7 @@ function arrKey(event) {
 	}
 	if (key == 40) {
 		Sdvig();
-		Show();
+		//Show();//отключено для увеличение быстродействия
 		console.log("down");
 	}
 
