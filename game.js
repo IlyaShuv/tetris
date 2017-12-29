@@ -13,7 +13,11 @@ function Show() {
 		document.body.innerHTML = content + "<br>";
 		for (var j=0; j<10; j++) {
 		content = document.body.innerHTML;
-		document.body.innerHTML = content + pole[i][j];
+		if (pole[i][j] == 0) {
+			document.body.innerHTML = content + "<div id = 'cell_0'></div>";
+		} else if (pole[i][j] == 1) {
+			document.body.innerHTML = content + "<div id = 'cell_1'></div>";
+		}
 		}
 	}
 	content = document.body.innerHTML;

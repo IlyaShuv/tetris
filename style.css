@@ -1,9 +1,27 @@
 .main_pole {
 
-	width: 120px;
+	display: inline-block;
+	width: 200px;
 	margin-top: 50px;
 	margin-left: 200px;
-
 	padding: 10px;
-	border: blue medium solid;
+	border: black medium solid;
+	background-image: radial-gradient( 
+	circle farthest-side at left top, rgba(255, 255, 0, 0.5), rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.5));
+}
+
+#cell_0 {
+	float: left;
+	width: 15px;
+	height: 17px;
+	border: solid black thin;
+	background-color: white;
+}
+
+#cell_1 {
+	float: left;
+	width: 15px;
+	height: 17px;
+	border: solid black thin;
+	background-color: rgba(0, 0, 100, 0.7);
 }
