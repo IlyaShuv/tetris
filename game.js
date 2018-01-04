@@ -21,7 +21,7 @@ function Show() {
 		}
 	}
 	content = document.body.innerHTML;
-	document.body.innerHTML = "<div class = main_pole>" + "<div class = play_pole>" + content + "</div>" + "</div>";
+	document.body.innerHTML = "<div class = main_pole>" + "<div class = points>очки:<br>" + points + "</div>" + "<div class = play_pole>" + content + "</div>" + "</div>";
 }
 
 function Destroy() {
@@ -80,9 +80,10 @@ function Sdvig() {
 	}
 }
 
-function arrKey(event) {
-	var key = event.keyCode;
-	
+function arrKey(e) {
+	var key = e.keyCode;
+	e=e||window.event;
+
 	if (key == 37) {
 		for (var i=0; i<19; i++) {
 			for (var j=1; j<10; j++) {
