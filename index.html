@@ -9,11 +9,12 @@
 </head>
 <body>
 <script>
+	var lines = 20;
 	var pole = Init();
 	var points = 0;
 	Add();
-	var TimeId1 = setInterval(Show, 30);
-	var TimeId2 = setInterval(Sdvig, 30);
+	var TimeId1 = setInterval(Show, 100);
+	var TimeId2 = setInterval(Sdvig, 100);
 	
 	addEventListener("keydown", arrKey);
 
