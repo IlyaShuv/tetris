@@ -50,11 +50,13 @@ function Destroy(){
 	 for (var i=0; i<lines; i++) {
 		for (var j=0; j<8; j++) {
 			if ((pole[i][j] != 0) && (pole[i][j] == pole[i][j+1]) && (pole[i][j] == pole[i][j+2])) {
-				pole[i][j]=0;
-				pole[i][j+1]=0;
-				pole[i][j+2]=0;
-				points++;
-				console.log("points: " + points);
+				if ((i == lines-1) || ((pole[i+1][j]!=0) && (pole[i+1][j+1]!=0)&& (pole[i+1][j+2]!=0))) {
+					pole[i][j]=0;
+					pole[i][j+1]=0;
+					pole[i][j+2]=0;
+					points++;
+					console.log("points: " + points);
+				}
 			}
 		}
 	}
@@ -105,12 +107,12 @@ function Sdvig() {
 			}
 			else {
 				if ((i == 0) && (j == 9) && !bool_sdvig) {
-					Destroy();
-					Add();
 				}
 			}
 		}
 	}
+	Show();
+	Destroy();
 }
 
 function arrKey(e) {
