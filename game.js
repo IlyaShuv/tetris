@@ -103,8 +103,7 @@ function Add() {
 			}
 			else if ((i == (lines-1)) && (pole[i][rand] != 0)) {
 				Show(pole);
-				document.body.innerHTML = "<div id='death'><audio src='muzichka.mp3' autoplay='autoplay'>?</audio></div>";
-				alert("Game over!");
+				document.body.innerHTML = "<div id='death'><audio src='muzichka.mp3' autoplay='autoplay'>?</audio>Game over!</div>";
 				clearInterval(TimeId1);
 				clearInterval(TimeId2);
 
@@ -179,12 +178,12 @@ function ChooseLevel(level) {
 	switch (level) {
 		case 1: temp = 300; break;
 		case 2: temp = 100; break;
-		case 3: temp = 50; break;
+		case 3: temp = 5; break;
 		default: temp = 100; break;
 	}
 	Add();
-	var TimeId1 = setInterval(Add, temp*10);
-	var TimeId2 = setInterval(Sdvig, temp);
+	TimeId1 = setInterval(Add, temp*10);
+	TimeId2 = setInterval(Sdvig, temp);
 	
 	addEventListener("keydown", arrKey);
 }
