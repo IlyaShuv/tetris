@@ -168,11 +168,10 @@ function arrKey(e) {
 
 function Start() {
 document.body.innerHTML = 
-"<div id='menu'><div id='tit'>Выберите уровень сложности</div>" + 
-"<div id='lvls'><div class='lvl' onclick='ChooseLevel(1)'>Easy</div>" + 
-"<div class='lvl' onclick='ChooseLevel(2)'>Medium</div>" + 
-"<div class='lvl' onclick='ChooseLevel(3)'>Hard</div></div></div>"
-//addEventListener("mousedown", ChooseLevel);
+"<div id='menu'>Выберите уровень сложности" + 
+"<div id=lvls><span id='lvl' onclick='ChooseLevel(1)'>Easy</span>" + 
+"<span id='lvl' onclick='ChooseLevel(2)'>Medium</span>" + 
+"<span id='lvl' onclick='ChooseLevel(3)'>Hard</span></div></div>"
 }
 
 function ChooseLevel(level) {
