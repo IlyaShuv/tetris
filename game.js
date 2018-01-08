@@ -13,18 +13,28 @@ function Show() {
 		document.body.innerHTML = content + "<br>";
 		for (var j=0; j<10; j++) {
 			content = document.body.innerHTML;
-			if (pole[i][j] == 0) {
-				document.body.innerHTML = content + "<div id = 'cell_0'></div>";
-			} else if (pole[i][j] == 1) {
-				document.body.innerHTML = content + "<div id = 'cell_1'></div>";
-			} else if (pole[i][j] == 2) {
-				document.body.innerHTML = content + "<div id = 'cell_2'></div>";
-			} else if (pole[i][j] == 3) {
-				document.body.innerHTML = content + "<div id = 'cell_3'></div>";
-			} else if (pole[i][j] == 4) {
-				document.body.innerHTML = content + "<div id = 'cell_4'></div>";
-			} else if (pole[i][j] == 5) {
-				document.body.innerHTML = content + "<div id = 'cell_5'></div>";
+			switch(pole[i][j]) {
+				case 0:
+					document.body.innerHTML = content + "<div id = 'cell_0'></div>";
+				break;
+				case 1:
+					document.body.innerHTML = content + "<div id = 'cell_1'></div>";
+				break;
+				case 2:
+					document.body.innerHTML = content + "<div id = 'cell_2'></div>";
+				break;
+				case 3:
+					document.body.innerHTML = content + "<div id = 'cell_3'></div>";
+				break;
+				case 4:
+					document.body.innerHTML = content + "<div id = 'cell_4'></div>";
+				break;
+				case 5:
+					document.body.innerHTML = content + "<div id = 'cell_5'></div>";
+				break;
+				default: 
+					document.body.innerHTML = content + "<div id = 'cell_0'></div>";
+				break;
 			}
 		}
 	}
