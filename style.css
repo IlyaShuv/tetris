@@ -1,5 +1,33 @@
-.main_pole {
+#menu {
+	background-image: radial-gradient(
+		circle farthest-side at right top, rgba(255, 255, 0, 0.4), rgba(255, 0, 255, 0.4));
+	margin: 0px;
+	display: inline-block;
+	font-size: 30pt;
+	font-family: 'Ubuntu', sans-serif;
+}
 
+#tit {
+	margin-top: 70px;
+	margin-left: 140px;
+	margin-right: 140px;
+	margin-bottom: 40px;
+}
+
+#lvls {
+	margin-left: 240px;
+	margin-bottom: 100px;
+}
+
+.lvl {
+	float: left;
+	margin-left: 40px;
+	font-size: 16pt;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+
+.main_pole {
 	display: inline-block;
 	width: 250px;
 	margin-top: 50px;

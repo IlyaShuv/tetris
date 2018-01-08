@@ -64,6 +64,9 @@ function Destroy(){
 					pole[i][j]=0;
 					pole[i][j+1]=0;
 					pole[i][j+2]=0;
+					if ((j != 7) && (pole[i][j+3] = pole[i][j])) {
+						pole[i][j+3] = 0;
+					}
 					points++;
 					console.log("points: " + points);
 				}
@@ -77,6 +80,9 @@ function Destroy(){
 				pole[i+1][j]=0;
 				pole[i+2][j]=0;
 				points++;
+				if ((i != (lines-3)) && (pole[i+3][j] = pole[i][j])){
+					pole[i+3][j] = 0;
+				}
 				console.log("points: " + points);
 			}
 		}
@@ -159,3 +165,28 @@ function arrKey(e) {
 
 	Show();
 }
+
+function Start() {
+document.body.innerHTML = 
+"<div id='menu'><div id='tit'>Выберите уровень сложности</div>" + 
+"<div id='lvls'><div class='lvl' onclick='ChooseLevel(1)'>Easy</div>" + 
+"<div class='lvl' onclick='ChooseLevel(2)'>Medium</div>" + 
+"<div class='lvl' onclick='ChooseLevel(3)'>Hard</div></div></div>"
+//addEventListener("mousedown", ChooseLevel);
+}
+
+function ChooseLevel(level) {
+	var temp = 100;
+	switch (level) {
+		case 1: temp = 300; break;
+		case 2: temp = 100; break;
+		case 3: temp = 50; break;
+		default: temp = 100; break;
+	}
+	Add();
+	var TimeId1 = setInterval(Add, temp*10);
+	var TimeId2 = setInterval(Sdvig, temp);
+	
+	addEventListener("keydown", arrKey);
+}
+
