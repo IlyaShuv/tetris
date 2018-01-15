@@ -42,20 +42,6 @@ function Show() {
 	document.body.innerHTML = "<div class = main_pole>" + "<div class = points>очки:<br>" + points + "</div>" + "<div class = play_pole>" + content + "</div>" + "</div>";
 }
 
-/*function Destroy() {
-	for (var i=0; i<lines; i++) {
-		for (var j=0; j<10; j++) {
-			if (pole[i][j] == 0) break
-			else if ((pole[i][j] != 0) && (j == 9)) {
-				pole.pop();
-				pole.unshift([0,0,0,0,0,0,0,0,0,0]);
-				points++;
-				console.log("points: " + points);
-			}
-		}
-	}
-}*/
-
 function Destroy(){
 	 for (var i=0; i<lines; i++) {
 		for (var j=0; j<8; j++) {
@@ -103,10 +89,10 @@ function Add() {
 			}
 			else if ((i == (lines-1)) && (pole[i][rand] != 0)) {
 				Show(pole);
-				document.body.innerHTML = "<div id='death'><audio src='muzichka.mp3' autoplay='autoplay'>?</audio>Game over!</div>";
+				document.body.innerHTML = "<div id='death'><audio src='muzichka.mp3' autoplay='autoplay'>?</audio>Game over!<br><span style='color: #EEEEEE; font-size: 25pt; font-family: 'Jura', sans-serif;'>Нажмите любую клавишу</span></div>";
 				clearInterval(TimeId1);
 				clearInterval(TimeId2);
-
+				GameOver = true;
 			}
 		}	
 }
@@ -134,35 +120,41 @@ function arrKey(e) {
 	var key = e.keyCode;
 	e=e||window.event;
 
-	if (key == 37) {
-		for (var i=0; i<(lines-1); i++) {
-			for (var j=1; j<10; j++) {
-				if ((pole[i][j] != 0) && (pole[i+1][j] == 0) && (pole[i][j-1] == 0)) {
-					pole[i][j-1] = pole[i][j];
-					pole[i][j] = 0;
+	if (!GameOver) {
+		if (key == 37) {
+			for (var i=0; i<(lines-1); i++) {
+				for (var j=1; j<10; j++) {
+					if ((pole[i][j] != 0) && (pole[i+1][j] == 0) && (pole[i][j-1] == 0)) {
+						pole[i][j-1] = pole[i][j];
+						pole[i][j] = 0;
+					}
 				}
 			}
+			console.log("left");
 		}
-		console.log("left");
-	}
-	if (key == 39) {
-		for (var i=0; i<(lines-1); i++) {
-			for (var j=8; j>=0; j--) {
-				if ((pole[i][j] != 0) && (pole[i+1][j] == 0) && (pole[i][j+1] == 0)) {
-					pole[i][j+1] = pole[i][j];
-					pole[i][j] = 0;
+		if (key == 39) {
+			for (var i=0; i<(lines-1); i++) {
+				for (var j=8; j>=0; j--) {
+					if ((pole[i][j] != 0) && (pole[i+1][j] == 0) && (pole[i][j+1] == 0)) {
+						pole[i][j+1] = pole[i][j];
+						pole[i][j] = 0;
+					}
 				}
 			}
+			console.log("right");
 		}
-		console.log("right");
+		if (key == 40) {
+			Sdvig();
+			//Show();//отключено для увеличение быстродействия
+			console.log("down");
+		}
+		Show();
 	}
-	if (key == 40) {
-		Sdvig();
-		//Show();//отключено для увеличение быстродействия
-		console.log("down");
+	else {
+		pole = Init();
+		points = 0;
+		Start();
 	}
-
-	Show();
 }
 
 function Start() {
@@ -186,5 +178,6 @@ function ChooseLevel(level) {
 	TimeId2 = setInterval(Sdvig, temp);
 	
 	addEventListener("keydown", arrKey);
+	GameOver = false;
 }
 
